@@ -1,13 +1,15 @@
 
+import TextAd from "./components/TextAd"
+import TextMedia from "./components/TextMedia"
+
 
 
 function App() {
 
   return (
     <>
-     <h1 className="text-3xl font-bold underline">
-      H!
-    </h1>
+   <TextAd/>
+   <TextMedia/>
     </>
   )
 }
