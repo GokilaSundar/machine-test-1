@@ -1,4 +1,4 @@
-import InputField from "../common/inputField";
+import InputField from "../common/InputField";
 import TextArea from "../common/TextArea";
 import DropDown from "../common/DropDown";
 import Button from "../common/Button";
@@ -21,11 +21,13 @@ const TextMedia = () => {
         <div className="grid grid-cols-2 gap-x-6">
           <div className="grid gap-y-4">
             <InputField
+            className='w-full'
               type="text"
               placeholder="Add a heading that would make user intrested"
               label="Heading 01"
             />
             <InputField
+            className='w-full'
               type="text"
               placeholder="Add aheading that would make user intrested"
               label="Heading 02"
@@ -40,22 +42,26 @@ const TextMedia = () => {
         </div>
         <div className="grid grid-cols-3 gap-6">
           <InputField
+          className='w-full'
             type="text"
             placeholder="Add the URL of the image you want to use for the ad"
             label="Landscape Marketing Image (1.9:1)"
           />
           <InputField
+          className='w-full'
             type="text"
             placeholder="Add the URL of the image you want to use for the ad"
             label="Portrait Marketing Image (4:5)"
           />
           <InputField
+          className='w-full'
             type="text"
             placeholder="Add the URL of the image you want to use for the ad"
             label="Square Marketing Image (1:1)"
           />
         </div>
         <InputField
+        className='w-full'
           type="text"
           placeholder="Add the URL of the landing page you want to redirect users to"
           label="Video URL"
@@ -63,6 +69,7 @@ const TextMedia = () => {
 
         <div className="grid grid-cols-2 gap-6">
           <InputField
+          className='w-full'
             type="text"
             placeholder="Add your business name"
             label="Business Name"
@@ -74,6 +81,7 @@ const TextMedia = () => {
           />
         </div>
         <InputField
+        className='w-full'
           type="text"
           placeholder="Add the URL of the landing page you want to redirect users to"
           label="Website URL"
