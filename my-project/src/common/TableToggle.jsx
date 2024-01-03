@@ -2,6 +2,7 @@ import {
     ChevronUpDownIcon,
     ChevronDownIcon,
   } from "@heroicons/react/20/solid";
+import { useState } from "react";
   const adInsights = [
     {
       group: "Male",
@@ -27,6 +28,14 @@ import {
     
   ];
   const Table = () => {
+ const[data,setData]= useState(adInsights)
+
+    const handleClick=(e)=>{
+      let type = e.target.textContent.toLowerCase();
+      const sorted = [...data].sort((a, b) => (a[type] > b[type]) ? 1 : ((b[type] > a[type]) ? -1 : 1))
+      setData(sorted);
+      console.log(data)
+    }
     const Clicks = adInsights.map((item) => item.clicks);
     const totalClicks = Clicks.reduce((acc, curr) => acc + curr);
     const cost = adInsights.map((item) => item.cost);
@@ -35,14 +44,13 @@ import {
     const totalconversations = conversations.reduce((acc, curr) => acc + curr);
     const revenue = adInsights.map((item) => item.revenue);
     const totalRevenue = revenue.reduce((acc, curr) => acc + curr);
-    console.log(totalClicks);
     return (
         <div className=" h-[277px] ">
  <div className="w-full  border-b-2 ">
         <table className="divide-y w-full">
           <thead className="text-slate-600 divide-y-2">
             <tr>
-              <th className="justify-start flex gap-1 py-2 pl-2">
+              <th onClick={handleClick} className="justify-start flex gap-1 py-2 pl-2">
                 <span>Group</span>
                 <span className="flex items-center -mb-1">
                   <ChevronDownIcon
@@ -51,7 +59,7 @@ import {
                   />
                 </span>
               </th>
-              <th className=" ">
+              <th onClick={handleClick} className=" ">
                 <div className="flex gap-1 justify-end">
                   <span>Clicks</span>
                   <span className="flex items-center -mb-1">
@@ -62,7 +70,7 @@ import {
                   </span>
                 </div>
               </th>
-              <th className="">
+              <th onClick={handleClick} className="">
                 <div className="flex justify-end">
                   <span>Cost</span>
                   <span className="flex items-center -mb-1">
@@ -73,7 +81,7 @@ import {
                   </span>
                 </div>
               </th>
-              <th className="text-right ">
+              <th onClick={handleClick} className="text-right ">
                 <div className="flex gap-1 justify-end">
                   <span>Conversations</span>
                   <span className="flex items-center -mb-1">
@@ -84,7 +92,7 @@ import {
                   </span>
                 </div>
               </th>
-              <th className="pr-2 ">
+              <th onClick={handleClick} className="pr-2 ">
                 <div className="flex gap-1 justify-end">
                   <span>Revenue</span>
                   <span className="flex items-center -mb-1">
@@ -98,7 +106,7 @@ import {
             </tr>
           </thead>
           <tbody className="divide-y text-gray-500">
-            {adInsights.map((adInsight, index) => (
+            {data.map((adInsight, index) => (
               <tr key={index} className="">
                 <td className="text-left py-2 pl-2">
                   <div className="">{adInsight.group}</div>
