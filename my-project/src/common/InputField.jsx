@@ -1,10 +1,6 @@
 import clsx from "clsx";
-import { useState } from "react";
-const InputField = ({ label, type, placeholder,className }) => {
-  const [value, setValue] = useState("");
-  const handleChange = (e) => {
-    setValue(e.target.value);
-  };
+const InputField = ({ label, type, placeholder,className,name,onChange,value }) => {
+  
   // console.log(value)
   return (
     <div className="grid gap-y-2">
@@ -12,8 +8,9 @@ const InputField = ({ label, type, placeholder,className }) => {
         {label}
       </label>
       <input
+        name={name}
         value={value}
-        onChange={handleChange}
+        onChange={onChange}
         className={clsx(className,"border-[1.5px]  mt-2 rounded-[4px] py-[7px] bg-slate-50 placeholder:text-[15px] pl-2")}
         type={type}
         placeholder={placeholder}
